@@ -54,8 +54,6 @@ func _ready():
 	for x in range((number_of_lines + 1) as int):
 		var line: Line2D = Line2D.new()
 		
-		print(x)
-		
 		if x == 0:
 			line.add_point(start_point)
 			
