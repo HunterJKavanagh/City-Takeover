@@ -1,3 +1,24 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Road/Road.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Main/Camera2D.gd" type="Script" id=2]
 
 [node name="Main" type="Node"]
+
+[node name="Road" parent="." instance=ExtResource( 1 )]
+start_point = Vector2( 250, 0 )
+road_legth = 5000
+
+[node name="Road2" parent="." instance=ExtResource( 1 )]
+start_point = Vector2( 0, 300 )
+dir = 1
+road_legth = 10000
+line_legth = 20
+
+[node name="Road3" parent="." instance=ExtResource( 1 )]
+start_point = Vector2( 750, 0 )
+road_legth = 5000
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 2 )
