@@ -14,22 +14,22 @@ var button_r: Button
 var button_b: Button
 var button_l: Button
 
-signal make_road(start_point, dir)
+signal build_road(start_point, dir)
 
 func _on_button_f_pressed():
 	print("f")
-	emit_signal("make_road", point_f, _new_road_dir(dir, 0))
+	emit_signal("build_road", point_f, new_road_dir(dir, 0))
 func _on_button_r_pressed():
 	print("r")
-	emit_signal("make_road", point_r, _new_road_dir(dir, 1))
+	emit_signal("build_road", point_r, new_road_dir(dir, 1))
 func _on_button_b_pressed():
 	print("b")
-	emit_signal("make_road", point_b, _new_road_dir(dir, 2))
+	emit_signal("build_road", point_b, new_road_dir(dir, 2))
 func _on_button_l_pressed():
 	print("l")
-	emit_signal("make_road", point_l, _new_road_dir(dir, 3))
+	emit_signal("build_road", point_l, new_road_dir(dir, 3))
 	
-func _new_road_dir(iter_dir, side_dir):
+func new_road_dir(iter_dir, side_dir):
 	var sum = iter_dir + side_dir
 	return sum if sum <= 3 else (sum - 4)
 
@@ -40,7 +40,7 @@ func _ready():
 	var point3: Vector2
 	
 	match dir:
-		0:
+		Lib.Dir.UP:
 			point_f = start_point + Vector2(0, -size)
 			point_r = start_point + Vector2(size/2, -size/2)
 			point_b = start_point
@@ -50,7 +50,7 @@ func _ready():
 			point1 = start_point + Vector2(size/2,-size)
 			point2 = start_point + Vector2(-size/2,-size)
 			point3 = start_point + Vector2(-size/2,0)
-		1:
+		Lib.Dir.RIGHT:
 			point_f = start_point + Vector2(size, 0)
 			point_r = start_point + Vector2(size/2, size/2)
 			point_b = start_point
@@ -60,7 +60,7 @@ func _ready():
 			point1 = start_point + Vector2(size,size/2)
 			point2 = start_point + Vector2(size,-size/2)
 			point3 = start_point + Vector2(0,-size/2)
-		2:
+		Lib.Dir.DOWN:
 			point_f = start_point + Vector2(0, size)
 			point_r = start_point + Vector2(-size/2, size/2)
 			point_b = start_point
@@ -70,7 +70,7 @@ func _ready():
 			point1 = start_point + Vector2(-size/2,size)
 			point2 = start_point + Vector2(size/2,size)
 			point3 = start_point + Vector2(size/2,0)
-		3:
+		Lib.Dir.LEFT:
 			point_f = start_point + Vector2(-size, 0)
 			point_r = start_point + Vector2(-size/2, -size/2)
 			point_b = start_point

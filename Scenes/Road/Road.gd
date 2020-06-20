@@ -3,31 +3,31 @@ extends Node2D
 export var start_point: Vector2 = Vector2(512, 0)
 var end_point: Vector2
 export var dir: int
-export var road_with: int = 100
-export var road_legth: int = 500
-export var line_with: int = 5
-export var line_legth: int = 25
+export var road_width: int = 100
+export var road_length: int = 500
+export var line_width: int = 5
+export var line_length: int = 25
 var mid_line_dir: Vector2
 var outer_line_dir: Vector2
 
 func _ready():
 	match dir:
 		0: 
-			end_point = start_point - Vector2(0, road_legth)
-			mid_line_dir = Vector2(0, -line_legth)
-			outer_line_dir = Vector2(road_with, 0)
+			end_point = start_point - Vector2(0, road_length)
+			mid_line_dir = Vector2(0, -line_length)
+			outer_line_dir = Vector2(road_width, 0)
 		1:
-			end_point = start_point + Vector2(road_legth, 0)
-			mid_line_dir = Vector2(line_legth, 0)
-			outer_line_dir = Vector2(0, road_with)
+			end_point = start_point + Vector2(road_length, 0)
+			mid_line_dir = Vector2(line_length, 0)
+			outer_line_dir = Vector2(0, road_width)
 		2:
-			end_point = start_point + Vector2(0, road_legth)
-			mid_line_dir = Vector2(0, line_legth)
-			outer_line_dir = Vector2(road_with, 0)
+			end_point = start_point + Vector2(0, road_length)
+			mid_line_dir = Vector2(0, line_length)
+			outer_line_dir = Vector2(road_width, 0)
 		3:
-			end_point = start_point - Vector2(road_legth, 0)
-			mid_line_dir = Vector2(-line_legth, 0)
-			outer_line_dir = Vector2(0, road_with)
+			end_point = start_point - Vector2(road_length, 0)
+			mid_line_dir = Vector2(-line_length, 0)
+			outer_line_dir = Vector2(0, road_width)
 	
 	
 	var left_line: Line2D = Line2D.new()
@@ -47,7 +47,7 @@ func _ready():
 	
 	var distance = distance(start_point, end_point)
 	
-	var number_of_lines = distance / (2 * line_legth)
+	var number_of_lines = distance / (2 * line_length)
 	
 	var last_point: Vector2 = Vector2(0,0) 
 	
