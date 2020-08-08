@@ -15,4 +15,6 @@ script = ExtResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="User Interface" parent="CanvasLayer" instance=ExtResource( 3 )]
+margin_top = -1.0
+margin_bottom = -1.0
 mouse_filter = 2
